@@ -1,24 +1,27 @@
-import logo from './logo.svg';
 import './App.css';
+import BlogFeaturedSection from './components/BlogFeaturedSection';
+import Header from './components/Header';
+import LandingRecipes from './components/LandingRecipes';
+import RecipesFeatured from './components/RecipesFeatured';
+import ContactSection from './components/ContactSection';
+
+function Page() {
+  return (
+      <div id="container">
+        <Header/>
+        <LandingRecipes />
+        <RecipesFeatured />
+        <BlogFeaturedSection/>
+        <ContactSection/>
+      </div>
+  );
+}
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <Page />
+    </>
   );
 }
 
