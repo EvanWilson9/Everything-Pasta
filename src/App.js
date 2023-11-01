@@ -20,7 +20,7 @@ function Page() {
 function App() {
   return (
     <>
-      <Page />
+      <Page/>
     </>
   );
 }
