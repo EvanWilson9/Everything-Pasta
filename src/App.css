@@ -424,55 +424,39 @@
   background-color: #e6e6e6;
 }
 
-.about-pfp{
-  width:200px;
-  border-radius: 9px;
-  object-fit: cover;
-  height:200px;
-}
-
 .about-info-aside{
   position: sticky;
   top:0;
   height:500px;
-  width:320px;
-  display: flex;
+  width:350px;
+  display:flex;
   flex-direction: column;
-  align-items: center;
+  align-items: start;
   justify-content: center;
-  gap:25px;
-  border-left: 1px solid lightgray;
-  padding-left:10px;
+  border: 1px solid lightgray;
+  padding-inline:30px;
+  border-radius: 15px;
+  background-image: url(https://images8.alphacoders.com/890/890246.jpg);
+  background-repeat: no-repeat;
+  background-size:cover;
+  background-position: -80px;
 }
 
-.about-title{
-  font-size:18px;
-}
-
-.about-mission{
-  font-size:18px;
-}
-
-.about-question{
-  font-size:25px;
-}
-
-.about-top{
+.about-info-aside-content{
   display: flex;
   flex-direction: column;
-  gap:15px;
-  font-family: monospace;
+  justify-content: center;
+  align-items: center;
+  gap:30px;
+  width:100%;
+  background-color: rgba(0, 0, 0, 0.24);
+  padding:15px;
+  border-radius: 9px;
 }
 
-.about-bottom{
-  display: flex;
-  flex-direction: column;
-  gap:15px;
-  font-family: monospace;
-}
+.create-message{
+  width:250px;
 
-.about-mission-title{
-  font-size:25px;
 }
 
 .about-info{
@@ -534,6 +518,14 @@
   padding:5px;
   font-family: Arial, Helvetica, sans-serif;
 }
+
+.create-message{
+  font-size:18px;
+  width:250px;
+  height:100px;
+  padding:5px;
+}
+
 .submit-btn{
   padding:13px 30px;
   background-color: transparent;
@@ -553,6 +545,49 @@
   display: flex;
   flex-direction: column;
   gap:12px;
+}
+
+.insert-img{
+  color:white;
+}
+
+.create-title{
+  font-size: 25px;
+  font-weight: bold;
+  color:white;
+}
+
+.insert-img-container{
+}
+
+.create-own-input{
+  font-size:18px;
+  width:250px;
+  height:25px;
+  padding:5px;
+}
+
+.create-btn{
+  background-color: white;
+  font-size:18px;
+  color: rgb(255, 190, 69);
+  border: 3px solid rgb(255, 190, 69);
+  font-size:15px;
+  transition: 0.4s ease;
+  cursor: pointer;
+  font-weight: bold;
+  padding:10px 25px;
+}
+
+.create-btn:hover{
+  background-color: rgb(255, 190, 69);
+  color:white;
+}
+
+.create-own-inputs{
+  display: flex;
+  flex-direction: column;
+  gap:20px;
 }
 
 /*MEDIA SECTION (DO NOT CROSS)*/
@@ -576,3 +611,13 @@
     padding-inline:150px;
   }
   }
+
+  @media screen and (max-width: 1600px){
+    #featured-section,
+    .landing-page-section,
+    #top-header-container,
+    .contact-content,
+    .blog-section-container{
+      padding-inline:200px;
+    }
+    }
