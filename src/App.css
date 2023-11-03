@@ -426,14 +426,14 @@
 
 .about-info-aside{
   position: sticky;
-  top:0;
+  top:17%;
   height:500px;
-  width:350px;
+  width:var(--aside-width);
   display:flex;
   flex-direction: column;
-  align-items: start;
+  align-items: center;
   justify-content: center;
-  border: 1px solid lightgray;
+  /* border: 1px solid lightgray; */
   padding-inline:30px;
   border-radius: 15px;
   background-image: url(https://images8.alphacoders.com/890/890246.jpg);
@@ -442,21 +442,18 @@
   background-position: -80px;
 }
 
+
 .about-info-aside-content{
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  gap:30px;
-  width:100%;
-  background-color: rgba(0, 0, 0, 0.24);
-  padding:15px;
-  border-radius: 9px;
-}
-
-.create-message{
-  width:250px;
-
+  gap:40px;
+  height:500px;
+  width:var(--aside-width);
+  background-color: rgba(0, 0, 0, 0.568);
+  padding-inline:30px;
+  border-radius: 15px;
 }
 
 .about-info{
@@ -524,6 +521,10 @@
   width:250px;
   height:100px;
   padding:5px;
+  font-family: Arial, Helvetica, sans-serif;
+  background-color: transparent;
+  border: 2px solid white;
+  color: white;
 }
 
 .submit-btn{
@@ -557,7 +558,8 @@
   color:white;
 }
 
-.insert-img-container{
+.create-container{
+
 }
 
 .create-own-input{
@@ -565,13 +567,16 @@
   width:250px;
   height:25px;
   padding:5px;
+  background-color: transparent;
+  border: 2px solid white;
+  color:white;
 }
 
 .create-btn{
-  background-color: white;
+  background-color: transparent;
   font-size:18px;
-  color: rgb(255, 190, 69);
-  border: 3px solid rgb(255, 190, 69);
+  color: white;
+  border: 3px solid white;
   font-size:15px;
   transition: 0.4s ease;
   cursor: pointer;
@@ -587,7 +592,28 @@
 .create-own-inputs{
   display: flex;
   flex-direction: column;
-  gap:20px;
+  gap:25px;
+}
+
+.insert-img-btn{
+  color:white;
+  border: 2px solid white;
+  padding:10px 20px;
+  cursor: pointer;
+}
+
+.insert-img-container{
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+}
+
+input[type="file"]{
+  display: none;
+}
+
+:root{
+  --aside-width: 320px;
 }
 
 /*MEDIA SECTION (DO NOT CROSS)*/
@@ -612,7 +638,7 @@
   }
   }
 
-  @media screen and (max-width: 1600px){
+  /* @media screen and (max-width: 1600px){
     #featured-section,
     .landing-page-section,
     #top-header-container,
@@ -620,4 +646,4 @@
     .blog-section-container{
       padding-inline:200px;
     }
-    }
+    } */
