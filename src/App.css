@@ -616,6 +616,23 @@ input[type="file"]{
   --aside-width: 320px;
 }
 
+.log-in-btn{
+  padding:10px 20px;
+  border-radius: 3px;
+  background-color: transparent;
+  border: 1px solid black;
+  color: black;
+  cursor: pointer;
+}
+
+.signup-section{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: lightblue;
+  gap:10px;
+}
+
 /*MEDIA SECTION (DO NOT CROSS)*/
 
 @media screen and (min-width: 1700px){

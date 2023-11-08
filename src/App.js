@@ -4,15 +4,17 @@ import Header from './components/Header';
 import LandingRecipes from './components/LandingRecipes';
 import RecipesFeatured from './components/RecipesFeatured';
 import ContactSection from './components/ContactSection';
+import SignUp from './components/SignUp';
 
 function Page() {
   return (
       <div id="container">
-        <Header/>
+        {/* <Header/>
         <LandingRecipes />
         <RecipesFeatured />
         <BlogFeaturedSection/>
-        <ContactSection/>
+        <ContactSection/> */}
+        <SignUp/>
       </div>
   );
 }

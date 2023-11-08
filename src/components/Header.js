@@ -23,8 +23,8 @@ function TopHeader() {
               <li>Home</li>
               <li>Recipes</li>
               <li>Blog</li>
-              <li>Contact</li>
               <li><button class="search-btn">Search</button></li>
+              <li><button class="log-in-btn">Login</button></li>
             </ul>
           </div>
         </div>
