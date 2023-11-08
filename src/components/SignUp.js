@@ -1,18 +1,26 @@
 import { useState } from 'react';
 import { createUserWithEmailAndPassword } from "firebase/auth";
+import { auth } from './firebase-config';
 
 function SignUp(){
 
   const [userEmail, setUserEmail] = useState('');
-  const [usePassword, setUserPassword] = useState('');
+  const [userPassword, setUserPassword] = useState('');
 
   const signup = async ()=>{
-    const user = await createUserWithEmailAndPassword();
+    try{
+      const user = await createUserWithEmailAndPassword(auth, userEmail, userPassword);
+      console.log(user);
+    }
+    catch(err){
+      console.log(err.message);
+    }
   }
 
-  const logout = ()=>{
 
-  }
+  // const logout = ()=>{
+
+  // }
 
   return(
     <section className='signup-section'>
