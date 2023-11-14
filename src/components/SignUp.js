@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { createUserWithEmailAndPassword, onAuthStateChanged, signOut, signInWithEmailAndPassword } from "firebase/auth";
 import { auth } from '../firebase-config';
 
@@ -30,8 +30,9 @@ function SignUp(){
  
   const signupForm = document.querySelector('.signup-form');
 
-  const signup = async ()=>{
+  const signup = async (e)=>{
     try{
+      e.preventDefault();
       const user = await createUserWithEmailAndPassword(auth, userEmail, userPassword);
       console.log(user);
 
@@ -43,17 +44,18 @@ function SignUp(){
     }
   }
 
-  // const logout = async ()=>{  
-  //   await signOut(auth);  
-  // }  
+  const logout = async ()=>{  
+    await signOut(auth);  
+  }  
 
-  // const login = async ()=>{
-  //   try{
-  //     const user = await signInWithEmailAndPassword(auth, loggedEmail, loggedPassword);
-  //   } catch (error) {
-  //     console.log(error.message);
-  //   }
-  // }
+  const login = async (e)=>{
+    try{
+      e.preventDefault();
+      const user = await signInWithEmailAndPassword(auth, loggedEmail, loggedPassword);
+    } catch (error) {
+      console.log(error.message);
+    }
+  }
 
   return(
     <section className='signup-section'>
@@ -72,38 +74,31 @@ function SignUp(){
           }}/>
         </div>
         <div>
-          <button onClick={signup} type="submit" id="signup-submit-btn">Submit</button>
-          {/* <button onClick={logout}>Sign Out</button> */}
-          <div>
-            <div>User that is logged in:</div>
-            {user ? user.email : "Not Logged In"}
-          </div>
+          <button onClick={signup} id="signup-submit-btn">Submit</button>
+          <button onClick={logout}>Sign Out</button>
         </div>
       </form>
       <br/>
-      {/* <h1>Log In</h1>
-      <form className='signup-form'>
+      <div>
+        <h1>Login</h1>
         <div>
-          <label>Email:</label>
+          <label>Email: </label>
           <input required id="email" onChange={(e)=>{
             setLoggedEmail(e.target.value);
           }}/>
         </div>
         <div>
-          <label>Password:</label>
-          <input required id="password" minLength={6} onChange={(e)=>{
+          <label>Password: </label>
+          <input required id="email" onChange={(e)=>{
             setLoggedPassword(e.target.value);
           }}/>
         </div>
+        <button onClick={login}>Submit</button>
         <div>
-          <button onClick={login} type="submit" id="signup-submit-btn">Submit</button>
-          {/* <button onClick={logout}>Sign Out</button> */}
-          {/* <div>
             <div>User that is logged in:</div>
             {user ? user.email : "Not Logged In"}
           </div>
-        </div> */}
-      {/* </form> */}
+      </div>
     </section>
   )
 }
