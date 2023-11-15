@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { createUserWithEmailAndPassword, onAuthStateChanged, signOut, signInWithEmailAndPassword } from "firebase/auth";
-import { auth } from '../firebase-config';
+import { auth, db } from '../firebase-config';
+import { setDoc, doc } from 'firebase/firestore';
 
 function SignUp(){
 
@@ -9,6 +10,8 @@ function SignUp(){
 
   const [loggedEmail, setLoggedEmail] = useState('');
   const [loggedPassword, setLoggedPassword] = useState('');
+
+  const [username, setUsername] = useState('');
 
   const [user, setUser] = useState(null);
 
@@ -29,13 +32,21 @@ function SignUp(){
   }, [])
  
   const signupForm = document.querySelector('.signup-form');
-  const loginForm = document.querySelector('#login-form');
+  // const loginForm = document.querySelector('#login-form');
 
-  const signup = async (e)=>{
+  const signup = (e)=>{
+
     try{
       e.preventDefault();
-      const user = await createUserWithEmailAndPassword(auth, userEmail, userPassword);
-      console.log(user);
+
+      createUserWithEmailAndPassword(auth, userEmail, userPassword)
+        .then( async (result)=>{
+          const ref = doc(db, 'users', result.user.uid);
+          const docRef = await setDoc(ref, {username})
+            .then((re) =>{
+              alert('data has been entered');
+            })
+        })
 
       signupForm.reset();
 
@@ -49,30 +60,36 @@ function SignUp(){
     await signOut(auth);  
   }  
 
-  const login = async (e)=>{
-    try{
-      e.preventDefault();
-      const user = await signInWithEmailAndPassword(auth, loggedEmail, loggedPassword);
+  // const login = async (e)=>{
+  //   try{
+  //     e.preventDefault();
+  //     const user = await signInWithEmailAndPassword(auth, loggedEmail, loggedPassword);
       
-      loginForm.reset();
+  //     loginForm.reset();
 
-    } catch (error) {
-      console.log(error.message);
-    }
-  }
+  //   } catch (error) {
+  //     console.log(error.message);
+  //   }
+  // }
 
   return(
     <section className='signup-section'>
       <h1>Sign Up</h1>
       <form className='signup-form'>
-        <div>
-          <label>Email:</label>
-          <input required id="email" onChange={(e)=>{
+      <div>
+          <label>Username: </label>
+          <input required onChange={(e)=>{
+            setUsername(e.target.value);
+          }}/>
+        </div>
+      <div>
+          <label>Email: </label>
+          <input required onChange={(e)=>{
             setUserEmail(e.target.value);
           }}/>
         </div>
         <div>
-          <label>Password:</label>
+          <label>Password: </label>
           <input required id="password" minLength={6} onChange={(e)=>{
             setUserPassword(e.target.value);
           }}/>
@@ -81,8 +98,13 @@ function SignUp(){
           <button onClick={signup} id="signup-submit-btn">Submit</button>
           <button onClick={logout}>Sign Out</button>
         </div>
+        User: {user? user.email : "Not logged in"}
       </form>
-      {/* <br/>
+    </section>
+  )
+}
+
+ /* <br/>
       <div>
         <h1>Login</h1>
         <form id="login-form">
@@ -104,9 +126,6 @@ function SignUp(){
             {user ? user.email : "Not Logged In"}
           </div>
           </form>
-      </div> */}
-    </section>
-  )
-}
+      </div> */
 
 export default SignUp;
