@@ -629,7 +629,15 @@ input[type="file"]{
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: center;
   background-color: lightblue;
+  gap:10px;
+  height:100vh;
+}
+
+.signup-form{
+  display: flex;
+  flex-direction: column;
   gap:10px;
 }
 

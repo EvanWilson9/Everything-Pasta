@@ -29,6 +29,7 @@ function SignUp(){
   }, [])
  
   const signupForm = document.querySelector('.signup-form');
+  const loginForm = document.querySelector('#login-form');
 
   const signup = async (e)=>{
     try{
@@ -52,6 +53,9 @@ function SignUp(){
     try{
       e.preventDefault();
       const user = await signInWithEmailAndPassword(auth, loggedEmail, loggedPassword);
+      
+      loginForm.reset();
+
     } catch (error) {
       console.log(error.message);
     }
@@ -78,9 +82,10 @@ function SignUp(){
           <button onClick={logout}>Sign Out</button>
         </div>
       </form>
-      <br/>
+      {/* <br/>
       <div>
         <h1>Login</h1>
+        <form id="login-form">
         <div>
           <label>Email: </label>
           <input required id="email" onChange={(e)=>{
@@ -98,7 +103,8 @@ function SignUp(){
             <div>User that is logged in:</div>
             {user ? user.email : "Not Logged In"}
           </div>
-      </div>
+          </form>
+      </div> */}
     </section>
   )
 }
