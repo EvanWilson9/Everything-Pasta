@@ -40,16 +40,17 @@ function SignUp(){
       e.preventDefault();
 
       createUserWithEmailAndPassword(auth, userEmail, userPassword)
-        .then( async (result)=>{
+        .then((result)=>{
           const ref = doc(db, 'users', result.user.uid);
-          const docRef = await setDoc(ref, {username})
+          setUsername(ref);
+          console.log(username);
+          const docRef = setDoc(ref, {username})
             .then((re) =>{
               alert('data has been entered');
             })
         })
 
       signupForm.reset();
-
     }
     catch(err){
       console.log(err.message);
@@ -99,6 +100,8 @@ function SignUp(){
           <button onClick={logout}>Sign Out</button>
         </div>
         User: {user? user.email : "Not logged in"}
+        <br/>
+       {username}
       </form>
     </section>
   )

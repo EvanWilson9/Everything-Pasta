@@ -9,12 +9,12 @@ import SignUp from './components/SignUp';
 function Page() {
   return (
       <div id="container">
-        {/* <Header/>
+        <Header/>
         <LandingRecipes />
         <RecipesFeatured />
         <BlogFeaturedSection/>
-        <ContactSection/> */}
-        <SignUp/>
+        <ContactSection/>
+        {/* <SignUp/> */}
       </div>
   );
 }
