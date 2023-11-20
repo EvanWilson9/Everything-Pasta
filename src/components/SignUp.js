@@ -8,8 +8,8 @@ function SignUp(){
   const [userEmail, setUserEmail] = useState('');
   const [userPassword, setUserPassword] = useState('');
 
-  const [loggedEmail, setLoggedEmail] = useState('');
-  const [loggedPassword, setLoggedPassword] = useState('');
+  // const [loggedEmail, setLoggedEmail] = useState('');
+  // const [loggedPassword, setLoggedPassword] = useState('');
 
   const [username, setUsername] = useState('');
 

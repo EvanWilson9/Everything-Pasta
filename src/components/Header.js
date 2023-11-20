@@ -1,11 +1,4 @@
 import React from 'react';
-import SignUp from './SignUp';
-import {
-  BrowserRouter as Router,
-  Routes,
-  Route,
-  Navigate,
-} from "react-router-dom";
 import { Link } from "react-router-dom";
 
 function Header() {
@@ -27,21 +20,18 @@ function TopHeader() {
       </div>
       <div class="right-side">
           <div class="navbar-links">
-            <Router>
-              <Routes>
-                <Route
-                  exact
-                  path="/signup"
-                  element={<SignUp/>}
-                />
-              </Routes>
-            </Router>
             <ul>
-              <li>Home</li>
+              <li>
+                <Link to="/">Home</Link>
+              </li>
               <li>Recipes</li>
               <li>Blog</li>
               <li><button class="search-btn">Search</button></li>
-              <li><button class="log-in-btn"><Link to="/signup">Sign Up</Link></button></li>
+              <li>
+                <Link to="/signup">
+                  <button class="log-in-btn">Sign Up</button>
+                </Link>
+              </li>
             </ul>
           </div>
         </div>
