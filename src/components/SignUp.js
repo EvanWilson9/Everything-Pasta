@@ -2,16 +2,21 @@ import React, { useEffect, useState } from 'react';
 import { createUserWithEmailAndPassword, onAuthStateChanged, signOut, signInWithEmailAndPassword } from "firebase/auth";
 import { auth, db } from '../firebase-config';
 import { setDoc, doc } from 'firebase/firestore';
+import { Link } from 'react-router-dom'
+
+let displayEmail;
 
 function SignUp(){
 
   const [userEmail, setUserEmail] = useState('');
   const [userPassword, setUserPassword] = useState('');
 
+  const [username, setUsername] = useState('');
+
+  displayEmail = userEmail;
+
   // const [loggedEmail, setLoggedEmail] = useState('');
   // const [loggedPassword, setLoggedPassword] = useState('');
-
-  const [username, setUsername] = useState('');
 
   const [user, setUser] = useState(null);
 
@@ -38,12 +43,11 @@ function SignUp(){
 
     try{
       e.preventDefault();
+      
 
       createUserWithEmailAndPassword(auth, userEmail, userPassword)
         .then((result)=>{
           const ref = doc(db, 'users', result.user.uid);
-          setUsername(ref);
-          console.log(username);
           const docRef = setDoc(ref, {username})
             .then((re) =>{
               alert('data has been entered');
@@ -59,6 +63,7 @@ function SignUp(){
 
   const logout = async ()=>{  
     await signOut(auth);  
+    setUsername('');
   }  
 
   // const login = async (e)=>{
@@ -96,7 +101,7 @@ function SignUp(){
           }}/>
         </div>
         <div>
-          <button onClick={signup} id="signup-submit-btn">Submit</button>
+          <Link to="/"><button onClick={signup} id="signup-submit-btn">Submit</button></Link>
           <button onClick={logout}>Sign Out</button>
         </div>
         User: {user? user.email : "Not logged in"}
@@ -131,4 +136,5 @@ function SignUp(){
           </form>
       </div> */
 
-export default SignUp;
+      export {displayEmail};
+      export default SignUp;

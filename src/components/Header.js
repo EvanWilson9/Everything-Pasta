@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from "react-router-dom";
+import {displayEmail} from './SignUp'
 
 function Header() {
   return (
@@ -32,6 +33,7 @@ function TopHeader() {
                   <button class="log-in-btn">Sign Up</button>
                 </Link>
               </li>
+              <li>{displayEmail}</li>
             </ul>
           </div>
         </div>
