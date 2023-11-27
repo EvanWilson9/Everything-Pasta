@@ -4,21 +4,21 @@ import { auth, db } from '../firebase-config';
 import { setDoc, doc } from 'firebase/firestore';
 import { Link } from 'react-router-dom'
 
-let displayEmail;
+let userExport;
 
 function SignUp(){
+
+  const [user, setUser] = useState(null);
 
   const [userEmail, setUserEmail] = useState('');
   const [userPassword, setUserPassword] = useState('');
 
   const [username, setUsername] = useState('');
 
-  displayEmail = userEmail;
+  userExport = user? user.email : null;
 
   // const [loggedEmail, setLoggedEmail] = useState('');
   // const [loggedPassword, setLoggedPassword] = useState('');
-
-  const [user, setUser] = useState(null);
 
   useEffect(()=>{
     const listen = onAuthStateChanged(auth, (currentUser)=>{
@@ -136,5 +136,5 @@ function SignUp(){
           </form>
       </div> */
 
-      export {displayEmail};
+      export {userExport};
       export default SignUp;
