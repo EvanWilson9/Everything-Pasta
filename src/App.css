@@ -679,6 +679,31 @@ input[type="file"]{
   
 }
 
+.exit-dialog{
+  position: absolute;
+  right:10px;
+  top:5px;
+  cursor: pointer;
+}
+
+#dialog{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: lightblue;
+  border: none;
+  border-radius: 9px;
+}
+
+#dialog-form{
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  flex-direction: column;
+  padding:25px;
+  position: relative;
+}
+
 /*MEDIA SECTION (DO NOT CROSS)*/
 
 @media screen and (min-width: 1700px){
