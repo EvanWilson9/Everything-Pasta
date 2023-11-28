@@ -14,29 +14,47 @@ function Blog(){
         )
     }
 
-    const dialog = document.getElementById('dialog');  
+    const dialogForm = document.getElementById('dialog-form');  
+    const createPost = document.querySelector('.create-post');
+    const exitDialog = document.querySelector('.exit-dialog');
+
+    // createPost.addEventListener('click', ()=>{
+    //     dialogForm.style.display="block";
+    // });
+
+    // exitDialog.addEventListener('click', ()=>{
+    //     dialogForm.style.display="none";
+    // });
 
     return(
         <>
             <TopHeader/>
                 <div className="blog-container">
                 <BlogPosts/>
-                <dialog closed id="dialog">
+                
                     <form id="dialog-form" method="dialog">
-                        <div>Create Post</div>
-                        <input type="text"/>
-                        <input type="text"/>
-                        <input type="image"/>
-                        <button>Create</button>
-                        <div className='exit-dialog' onClick={()=>{
-                            dialog.style.display="none";
-                        }}>
-                            X
+                        <div className='form-structure'>
+                            <h2 style={{
+                                color:'white'
+                            }}>Create Post</h2>
+
+                            <input placeholder='Title' className='post-title' type="text"/>
+
+                            <textarea className='create-post-message' placeholder='Message'></textarea>
+                            
+                            <input type="file"/>
+                            <div className="create-container">
+                                <button className="create-btn">Create</button>
+                            </div>
+                            <div onClick={()=>{
+                                dialogForm.style.display="none";
+                            }} className='exit-dialog'>
+                                X
+                            </div>
                         </div>
                     </form>
-                </dialog>
                 <button onClick={()=>{
-                    dialog.style.display="block";  
+                    dialogForm.style.display="block";
                 }} className="create-post">
                     Create Post
                 </button>

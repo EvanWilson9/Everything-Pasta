@@ -1,6 +1,7 @@
 import './App.css';
 import Home from './components/Home'
 import SignUp from './components/SignUp';
+import Blog from './components/Blog';
 import {
   Routes,
   Route,
@@ -12,7 +13,7 @@ function Page() {
           <Routes>
             <Route path="/" element={<Home/>} />
             <Route path="/signup" element={<SignUp/>} />
-            {/* <Route path="/blog" element={<Blog/>} */}
+            <Route path="/blog" element={<Blog/>}/>
           </Routes>
       </div>
   );
