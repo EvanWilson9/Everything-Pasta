@@ -11,12 +11,15 @@ function TopHeader() {
             <div class="navbar-links">
               <ul>
                 <li>
-                  <Link to="/" id="link"><p id="home-txt">Home</p></Link>
+                  <Link to="/" id="link">
+                    <p id="home-txt">Home</p>
+                  </Link>
                 </li>
-                <li>Recipes</li>
+                <li>
                 <Link id="link" to="/blog">
-                  <li>Blog</li>
+                  <p>Blog</p>
                 </Link>
+                </li>
                 <li>
                   <Link to="/signup">
                     <button class="log-in-btn">Sign Up</button>

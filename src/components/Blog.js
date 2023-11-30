@@ -47,15 +47,21 @@ function Blog(){
                                 <button className="create-btn">Create</button>
                             </div>
                             <div onClick={()=>{
-                                dialogForm.style.display="none";
-                            }} className='exit-dialog'>
+                                let dialogForm = document.getElementById('dialog-form');  
+                                dialogForm.style.display = "block";
+                                console.log('close');
+                            }} 
+                            className='exit-dialog'>
                                 X
                             </div>
                         </div>
                     </form>
                 <button onClick={()=>{
-                    dialogForm.style.display="block";
-                }} className="create-post">
+                    let dialogForm = document.getElementById('dialog-form');  
+                    dialogForm.style.display = "none";
+                    console.log('open');
+                }} 
+                className="create-post">
                     Create Post
                 </button>
                 

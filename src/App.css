@@ -637,16 +637,21 @@ input[type="file"]{
   cursor: pointer;
 }
 
-
+.entire-signup-wrapper{
+  display: flex;
+  flex-direction: column;
+}
 
 .signup-section{
   display: flex;
   flex-direction: column;
-  align-items: center;
+  align-items: start;
   justify-content: center;
   background-color: lightblue;
   gap:10px;
-  height:100vh;
+  height:60vh;
+  padding-inline: 150px;
+
 }
 
 .signup-form{
@@ -698,6 +703,7 @@ input[type="file"]{
   right: 0; 
   margin-left: auto; 
   margin-right: auto; 
+  z-index: 1;
   width: 400px; 
   background-image: url(https://images8.alphacoders.com/890/890246.jpg);
   background-repeat: no-repeat;
