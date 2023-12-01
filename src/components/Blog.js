@@ -32,7 +32,7 @@ function Blog(){
                 <div className="blog-container">
                 <BlogPosts/>
                 
-                    <form id="dialog-form" method="dialog">
+                    <div id="dialog-form" method="dialog">
                         <div className='form-structure'>
                             <h2 style={{
                                 color:'white'
@@ -55,7 +55,7 @@ function Blog(){
                                 X
                             </div>
                         </div>
-                    </form>
+                    </div>
                 <button onClick={()=>{
                     let dialogForm = document.getElementById('dialog-form');  
                     dialogForm.style.display = "none";
