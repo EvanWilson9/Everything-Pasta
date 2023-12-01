@@ -8,11 +8,12 @@ import Blog from './Blog';
 function Home() {
     return(
         <>
-            <Header/>
+            {/* <Header/>
             <LandingRecipes />
             <RecipesFeatured />
             <BlogFeaturedSection/>
-            <ContactSection/>
+            <ContactSection/> */}
+            <Blog/>
         </>
     );
 }

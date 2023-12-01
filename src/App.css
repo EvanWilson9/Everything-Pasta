@@ -640,24 +640,56 @@ input[type="file"]{
 .entire-signup-wrapper{
   display: flex;
   flex-direction: column;
+  
 }
 
 .signup-section{
   display: flex;
   flex-direction: column;
-  align-items: start;
+  align-items: center;
   justify-content: center;
-  background-color: lightblue;
   gap:10px;
-  height:60vh;
+  height:85vh;
   padding-inline: 150px;
+  background-image:url(https://images4.alphacoders.com/104/thumb-1920-1044463.jpg);
+  background-position:0px -200px;
+  background-repeat: no-repeat;
+  background-size:cover;
+}
 
+.signup-input{
+  padding:5px;
+}
+
+.signup-btns{
+  display: flex;
+  gap:15px;
+  justify-content: center;
+}
+
+.signup-btn{
+  padding:10px 20px;
+  cursor: pointer;
+}
+
+.signup-container{
+  background-color: rgba(0, 0, 0, 0.616);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding:30px;
+  border-radius: 9px;
 }
 
 .signup-form{
   display: flex;
   flex-direction: column;
-  gap:10px;
+  gap:40px;
+  padding-top:30px;
+  justify-content: center;
+  align-items: center;
+  color:white;
 }
 
 .blog-container{

@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import {userExport} from './SignUp';
 
-function TopHeader() {
+function TopHeader({user}) {
     return (
       <div id="top-header-container">
         <div id="left-side">
@@ -25,7 +25,7 @@ function TopHeader() {
                     <button class="log-in-btn">Sign Up</button>
                   </Link>
                 </li>
-                <li>{userExport}</li>
+                <li>{user? user.email : 'Guest'}</li>
               </ul>
             </div>
           </div>

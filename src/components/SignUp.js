@@ -1,9 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import { createUserWithEmailAndPassword, onAuthStateChanged, signOut, signInWithEmailAndPassword } from "firebase/auth";
 import { auth, db } from '../firebase-config';
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import TopHeader from './TopHeader';
-import ContactSection from './ContactSection';
 
 let userExport;
 
@@ -35,9 +34,13 @@ function SignUp() {
     }
   }, [])
 
-  const signupForm = document.querySelector('.signup-form');
-  // const loginForm = document.querySelector('#login-form');
+  let inputOne = document.querySelectorAll('#password');
+  let inputTwo = document.querySelectorAll("#email");
 
+
+  // const loginForm = document.querySelector('#login-form');
+  const navigate = useNavigate()
+  
   const signup = (e) => {
 
     try {
@@ -46,10 +49,9 @@ function SignUp() {
 
       createUserWithEmailAndPassword(auth, userEmail, userPassword)
         .then(() => {
-          alert('data has been entered');
+          
+          // navigate('/blog');
         })
-
-      signupForm.reset();
     }
     catch (err) {
       console.log(err.message);
@@ -74,34 +76,38 @@ function SignUp() {
 
   return (
     <div className='entire-signup-wrapper'>
-      <TopHeader />
+      <TopHeader user={user}/>
       <section className='signup-section'>
-        <h1>Sign Up</h1>
-        <form className='signup-form'>
+        <div className='signup-container'>
+        <h1 style={{
+          color:'white'
+        }}
+        >Sign Up</h1>
+        <div className='signup-form'>
           <div>
             <label>Email: </label>
-            <input required onChange={(e) => {
+            <input className='signup-input' id="email" required onChange={(e) => {
               setUserEmail(e.target.value);
             }} />
           </div>
           <div>
             <label>Password: </label>
-            <input required id="password" minLength={6} onChange={(e) => {
+            <input className='signup-input' required id="password" minLength={6} onChange={(e) => {
               setUserPassword(e.target.value);
             }} />
           </div>
-          <div>
+          <div className='signup-btns'>
             <Link to="/">
-              <button onClick={signup} id="signup-submit-btn">
+              <button className='signup-btn' onClick={signup} id="signup-submit-btn">
                 Submit
               </button>
             </Link>
-            <button onClick={logout}>Sign Out</button>
+            <button className='signup-btn' onClick={logout}>Sign Out</button>
           </div>
           <br />
-        </form>
+        </div>
+        </div>
       </section>
-      <ContactSection/>
     </div>
 
   );
