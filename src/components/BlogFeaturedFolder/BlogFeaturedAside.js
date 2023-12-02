@@ -8,7 +8,7 @@ function BlogFeaturedAside(){
       <div>
         <div className="create-title">Create your own post</div>
       </div>
-      <div className="create-own-inputs">
+      {/* <div className="create-own-inputs">
         <div>
          <input className="create-own-input" type="text" placeholder="Title"/>
         </div>
@@ -19,7 +19,7 @@ function BlogFeaturedAside(){
          <input className="insert-img" id="file" type="file"/>
          <label for="file" className="insert-img-btn">Choose an image</label>
         </div>
-      </div>
+      </div> */}
       <div className="create-container">
         <Link to='/blog'>
           <button className="create-btn">
