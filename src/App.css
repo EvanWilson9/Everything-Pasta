@@ -629,6 +629,26 @@
   text-align: center;
 }
 
+.signup-input-boxes{
+  display: flex;
+  gap:10px;
+}
+
+.signup-titles{
+  display: flex;
+  gap:8px;
+}
+
+.signup-page-btn{
+  color:white;
+  cursor: pointer;
+}
+
+.login-page-btn{
+  color:rgba(211, 211, 211, 0.363);
+  cursor: pointer;
+}
+
 input[type="file"]{
   display: none;
 }
@@ -673,7 +693,7 @@ input[type="file"]{
 
 .signup-btns{
   display: flex;
-  gap:15px;
+  gap:5px;
   justify-content: center;
 }
 

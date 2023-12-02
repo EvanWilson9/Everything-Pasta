@@ -22,7 +22,7 @@ function TopHeader({user}) {
                 </li>
                 <li>
                   <Link to="/signup">
-                    <button class="log-in-btn">Sign Up</button>
+                    <button class="log-in-btn">Sign Up / Log In</button>
                   </Link>
                 </li>
                 <li>{user? user.email : 'Guest'}</li>

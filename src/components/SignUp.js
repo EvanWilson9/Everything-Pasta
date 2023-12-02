@@ -36,11 +36,8 @@ function SignUp() {
 
   let inputOne = document.querySelector('#password');
   let inputTwo = document.querySelector("#email");
-
-
-  // const loginForm = document.querySelector('#login-form');
   const navigate = useNavigate()
-  
+
   const signup = (e) => {
 
     try {
@@ -49,10 +46,10 @@ function SignUp() {
 
       createUserWithEmailAndPassword(auth, userEmail, userPassword)
         .then(() => {
-          
-          navigate('/blog', {user: user});
-          inputOne.value="";
-          inputTwo.value="";
+
+          navigate('/blog', { user: user });
+          inputOne.value = "";
+          inputTwo.value = "";
         })
     }
     catch (err) {
@@ -76,43 +73,66 @@ function SignUp() {
   //   }
   // }
 
+  const signUpBtn = document.querySelector('.signup-page-btn');
+  const logInBtn = document.querySelector('.login-page-btn');
+  let count = 0;
+
+  const func = (option)=>{
+  
+    if(signUpBtn && logInBtn){
+
+      if(count === 0){
+        option = 'signup';
+        console.log('signup count');
+        count++;
+      }
+
+      if(option === 'signup'){
+        console.log('signup');
+        signUpBtn.style.color='white';
+        logInBtn.style.color="rgba(211, 211, 211, 0.363)";
+
+      } else if(option === 'login') {
+
+        console.log('login');
+        signUpBtn.style.color='rgba(211, 211, 211, 0.363)';
+        logInBtn.style.color="white";
+
+      }
+    }
+  }
+
   return (
     <div className='entire-signup-wrapper'>
-      <TopHeader user={user}/>
+      <TopHeader user={user} />
       <section className='signup-section'>
         <div className='signup-container'>
-        <h1 style={{
-          color:'white'
-        }}
-        >Sign Up</h1>
-        <div className='signup-form'>
-          <table>
-            <tr>
-              <td>Email:</td>
-              <td><input className='signup-input' id="email" required onChange={(e) => {
+          <div className='signup-titles'>
+            <h1 onClick={func('signup')} className='signup-page-btn'>Sign Up</h1>
+            <h1 style={{
+              color: 'white'
+            }}>/</h1>
+            <h1 onClick={func('login')} className='login-page-btn'>Log In</h1>
+          </div>
+          <div className='signup-form'>
+            <div className='signup-input-boxes'>
+              <input className='signup-input' placeholder='Email' id="email" required onChange={(e) => {
                 setUserEmail(e.target.value);
               }} />
-              </td>
-            </tr>
-            <tr>
-            <div>
-              <label>Password: </label>
-              <input className='signup-input' required id="password" minLength={6} onChange={(e) => {
+              <input className='signup-input' placeholder='Password' required id="password" minLength={6} onChange={(e) => {
                 setUserPassword(e.target.value);
               }} />
             </div>
-            </tr>
-          </table>
-          <div className='signup-btns'>
-            <Link to="/">
-              <button className='signup-btn' onClick={signup} id="signup-submit-btn">
-                Submit
-              </button>
-            </Link>
-            <button className='signup-btn' onClick={logout}>Sign Out</button>
+            <div className='signup-btns'>
+              <Link to="/">
+                <button className='signup-btn' onClick={signup} id="signup-submit-btn">
+                  Submit
+                </button>
+              </Link>
+              <button className='signup-btn' onClick={logout}>Sign Out</button>
+            </div>
+            <br />
           </div>
-          <br />
-        </div>
         </div>
       </section>
     </div>
