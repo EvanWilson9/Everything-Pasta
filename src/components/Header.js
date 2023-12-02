@@ -24,4 +24,4 @@ function BottomHeader() {
   );
 }
 
-export default {Header, TopHeader};
+export default Header;

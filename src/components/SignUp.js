@@ -34,8 +34,8 @@ function SignUp() {
     }
   }, [])
 
-  let inputOne = document.querySelectorAll('#password');
-  let inputTwo = document.querySelectorAll("#email");
+  let inputOne = document.querySelector('#password');
+  let inputTwo = document.querySelector("#email");
 
 
   // const loginForm = document.querySelector('#login-form');
@@ -50,7 +50,9 @@ function SignUp() {
       createUserWithEmailAndPassword(auth, userEmail, userPassword)
         .then(() => {
           
-          // navigate('/blog');
+          navigate('/blog', {user: user});
+          inputOne.value="";
+          inputTwo.value="";
         })
     }
     catch (err) {
@@ -84,18 +86,23 @@ function SignUp() {
         }}
         >Sign Up</h1>
         <div className='signup-form'>
-          <div>
-            <label>Email: </label>
-            <input className='signup-input' id="email" required onChange={(e) => {
-              setUserEmail(e.target.value);
-            }} />
-          </div>
-          <div>
-            <label>Password: </label>
-            <input className='signup-input' required id="password" minLength={6} onChange={(e) => {
-              setUserPassword(e.target.value);
-            }} />
-          </div>
+          <table>
+            <tr>
+              <td>Email:</td>
+              <td><input className='signup-input' id="email" required onChange={(e) => {
+                setUserEmail(e.target.value);
+              }} />
+              </td>
+            </tr>
+            <tr>
+            <div>
+              <label>Password: </label>
+              <input className='signup-input' required id="password" minLength={6} onChange={(e) => {
+                setUserPassword(e.target.value);
+              }} />
+            </div>
+            </tr>
+          </table>
           <div className='signup-btns'>
             <Link to="/">
               <button className='signup-btn' onClick={signup} id="signup-submit-btn">
@@ -113,5 +120,5 @@ function SignUp() {
   );
 }
 
-export { userExport };
+// export { userExport };
 export default SignUp;

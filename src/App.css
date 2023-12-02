@@ -583,6 +583,16 @@
   color:white;
 }
 
+.create-message{
+  font-size:18px;
+  width:250px;
+  padding:5px;
+  height:100px;
+  background-color: transparent;
+  border: 2px solid white;
+  color:white;
+}
+
 .create-btn{
   background-color: transparent;
   font-size:18px;
@@ -713,7 +723,6 @@ input[type="file"]{
 
 .create-module{
   background-color: red;
-  
 }
 
 .exit-dialog{

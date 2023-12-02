@@ -1,18 +1,9 @@
 import React from 'react';
 import TopHeader from './TopHeader';
 import BlogPosts from './BlogPosts';
-import CreatePostModule from './CreatePostModule';
+import { useLocation } from 'react-router-dom';
 
 function Blog(){
-
-    const CreatePostModule = ()=>{
-       
-        return(
-            <>
-               
-            </>
-        )
-    }
 
     const dialogForm = document.getElementById('dialog-form');  
     const createPost = document.querySelector('.create-post');
@@ -25,6 +16,9 @@ function Blog(){
     // exitDialog.addEventListener('click', ()=>{
     //     dialogForm.style.display="none";
     // });
+
+    // const location = useLocation();
+    // const user = location.state.user;
 
     return(
         <>

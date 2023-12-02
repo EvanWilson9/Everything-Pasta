@@ -1,4 +1,5 @@
 import React from "react";
+import {Link} from 'react-router-dom';
 
 function BlogFeaturedAside(){
   return(
@@ -20,7 +21,11 @@ function BlogFeaturedAside(){
         </div>
       </div>
       <div className="create-container">
-        <button className="create-btn">Create</button>
+        <Link to='/blog'>
+          <button className="create-btn">
+            Create
+          </button>
+        </Link>
       </div>
       </div>
     </aside>
