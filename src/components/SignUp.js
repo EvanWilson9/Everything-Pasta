@@ -10,11 +10,6 @@ function SignUp({setIsAuth, setUserInfo}) {
   const [userEmail, setUserEmail] = useState('');
   const [userPassword, setUserPassword] = useState('');
 
-  // userExport = user ? user.email : null;
-
-  // const [loggedEmail, setLoggedEmail] = useState('');
-  // const [loggedPassword, setLoggedPassword] = useState('');
-
   useEffect(() => {
     const listen = onAuthStateChanged(auth, (currentUser) => {
       if (currentUser) {
@@ -60,18 +55,6 @@ function SignUp({setIsAuth, setUserInfo}) {
 
   }
 
-  // const login = async (e)=>{
-  //   try{
-  //     e.preventDefault();
-  //     const user = await signInWithEmailAndPassword(auth, loggedEmail, loggedPassword);
-
-  //     loginForm.reset();
-
-  //   } catch (error) {
-  //     console.log(error.message);
-  //   }
-  // }
-
   const signUpBtn = document.querySelector('.signup-page-btn');
   const logInBtn = document.querySelector('.login-page-btn');
 
@@ -79,19 +62,11 @@ function SignUp({setIsAuth, setUserInfo}) {
     <div className='entire-signup-wrapper'>
       <section className='signup-section'>
         <div className='signup-container'>
-          <div className='signup-titles'>
-            <h1 onClick={() => {
-              signUpBtn.style.color = 'white';
-              logInBtn.style.color = "rgba(211, 211, 211, 0.363)";
-            }} className='signup-page-btn'>Sign Up</h1>
-            <h1 style={{
-              color: 'white'
-            }}>/</h1>
-            <h1 onClick={() => {
+            <h1 className='signup-page-btn'>Sign Up</h1>
+            {/* <h1 onClick={() => {
               signUpBtn.style.color = 'rgba(211, 211, 211, 0.363)';
               logInBtn.style.color = "white";
-            }} className='login-page-btn'>Log In</h1>
-          </div>
+            }} className='login-page-btn'>Log In</h1> */}
           <div className='signup-form'>
             <div className='signup-input-boxes'>
               <input className='signup-input' placeholder='Email' id="email" required onChange={(e) => {
@@ -109,7 +84,7 @@ function SignUp({setIsAuth, setUserInfo}) {
               </Link>
               <button className='signup-btn' onClick={logout}>Sign Out</button>
             </div>
-            <br />
+            <Link id='login-link' to='/login'>Already have an account?</Link>
           </div>
         </div>
       </section>
