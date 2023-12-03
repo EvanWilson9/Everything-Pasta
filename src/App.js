@@ -1,6 +1,7 @@
 import './App.css';
+import { useState } from 'react';
 import Home from './components/Home'
-import SignUp from './components/SignUp';
+import SignUp, { TopHeader } from './components/SignUp';
 import Blog from './components/Blog';
 import {
   Routes,
@@ -8,6 +9,7 @@ import {
 } from "react-router-dom";
 
 function Page() {
+
   return (
       <div id="container">
           <Routes>
@@ -20,8 +22,13 @@ function Page() {
 }
  
 function App() {
+
+  const [user, setUser] = useState(null);
+
   return (
+    <>
       <Page/>
+    </>
   );
 }
 

@@ -1,22 +1,23 @@
 import React from 'react';
-import TopHeader from './TopHeader';
+import { TopHeader } from './SignUp';
 
 // localStorage.setItem('email', userExport);
 // let email = localStorage.getItem("email");
 
 
 function Header() {
+  let userName = 'Email';
   return (
     <>
       <nav id="navbar">
-        <TopHeader />
-        <BottomHeader />
+        <TopHeader user={userName}/>
+        <BottomHeader/>
       </nav>
     </>
   );
 }
 
-function BottomHeader() {
+export function BottomHeader() {
   return (
     <section className='navbar-bottom-section'>
       <div className='navbar-bottom-info'>Eat. Sleep.<span class="slogo-word"> Pasta</span>. Repeat.</div>

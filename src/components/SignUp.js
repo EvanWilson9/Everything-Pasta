@@ -2,7 +2,6 @@ import React, { useEffect, useState } from 'react';
 import { createUserWithEmailAndPassword, onAuthStateChanged, signOut, signInWithEmailAndPassword } from "firebase/auth";
 import { auth, db } from '../firebase-config';
 import { Link, useNavigate } from 'react-router-dom'
-import TopHeader from './TopHeader';
 
 let userExport;
 
@@ -13,7 +12,7 @@ function SignUp() {
   const [userEmail, setUserEmail] = useState('');
   const [userPassword, setUserPassword] = useState('');
 
-  userExport = user ? user.email : null;
+  // userExport = user ? user.email : null;
 
   // const [loggedEmail, setLoggedEmail] = useState('');
   // const [loggedPassword, setLoggedPassword] = useState('');
@@ -47,7 +46,7 @@ function SignUp() {
       createUserWithEmailAndPassword(auth, userEmail, userPassword)
         .then(() => {
 
-          navigate('/blog', { user: user });
+          // navigate('/blog');
           inputOne.value = "";
           inputTwo.value = "";
         })
@@ -75,44 +74,24 @@ function SignUp() {
 
   const signUpBtn = document.querySelector('.signup-page-btn');
   const logInBtn = document.querySelector('.login-page-btn');
-  let count = 0;
-
-  const func = (option)=>{
-  
-    if(signUpBtn && logInBtn){
-
-      if(count === 0){
-        option = 'signup';
-        console.log('signup count');
-        count++;
-      }
-
-      if(option === 'signup'){
-        console.log('signup');
-        signUpBtn.style.color='white';
-        logInBtn.style.color="rgba(211, 211, 211, 0.363)";
-
-      } else if(option === 'login') {
-
-        console.log('login');
-        signUpBtn.style.color='rgba(211, 211, 211, 0.363)';
-        logInBtn.style.color="white";
-
-      }
-    }
-  }
 
   return (
     <div className='entire-signup-wrapper'>
-      <TopHeader user={user} />
+      <TopHeader user={user}/>
       <section className='signup-section'>
         <div className='signup-container'>
           <div className='signup-titles'>
-            <h1 onClick={func('signup')} className='signup-page-btn'>Sign Up</h1>
+            <h1 onClick={() => {
+              signUpBtn.style.color = 'white';
+              logInBtn.style.color = "rgba(211, 211, 211, 0.363)";
+            }} className='signup-page-btn'>Sign Up</h1>
             <h1 style={{
               color: 'white'
             }}>/</h1>
-            <h1 onClick={func('login')} className='login-page-btn'>Log In</h1>
+            <h1 onClick={() => {
+              signUpBtn.style.color = 'rgba(211, 211, 211, 0.363)';
+              logInBtn.style.color = "white";
+            }} className='login-page-btn'>Log In</h1>
           </div>
           <div className='signup-form'>
             <div className='signup-input-boxes'>
@@ -137,6 +116,38 @@ function SignUp() {
       </section>
     </div>
 
+  );
+}
+
+export function TopHeader({user}) {
+  return (
+    <div id="top-header-container">
+      <div id="left-side">
+        <img className='title' alt="" src="/images/everything-pasta-logo.png"/>
+      </div>
+      <div class="right-side">
+          <div class="navbar-links">
+            <ul>
+              <li>
+                <Link to="/" id="link">
+                  <p id="home-txt">Home</p>
+                </Link>
+              </li>
+              <li>
+              <Link id="link" to="/blog">
+                <p>Blog</p>
+              </Link>
+              </li>
+              <li>
+                <Link to="/signup">
+                  <button class="log-in-btn">Sign Up / Log In</button>
+                </Link>
+              </li>
+              <li>{user? user.email : 'Guest'}</li>
+            </ul>
+          </div>
+        </div>
+      </div>
   );
 }
 
