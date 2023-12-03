@@ -40,33 +40,24 @@
   min-height: auto;
 }
 
+nav{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20px 0px 20px 0px;
+  border-bottom: 1px solid lightgray;
+  padding-inline: 300px;
+}
+
 #bottom-header-container {
   display: flex;
 }
 
 .navbar-links {
-  width: 100%;
-}
-
-.navbar-links ul {
   display: flex;
-  justify-content: space-around;
-  cursor: pointer;
+  gap:30px;
+  font-size: 20px;
   align-items: center;
-
-}
-
-.navbar-links ul li {
-  list-style: none;
-  width: 100%;
-  padding: 15px;
-  font-size: 17px;
-  text-align: center;
-  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
-}
-
-.navbar-links ul li link {
-  text-decoration: none;
 }
 
 #link {
@@ -377,7 +368,7 @@
 
 .navbar-bottom-section {
   text-align: center;
-  padding: 10px 0px 25px;
+  padding: 25px 0px 25px;
 }
 
 .navbar-bottom-info {
@@ -660,6 +651,16 @@ input[type="file"] {
 .log-in-btn {
   padding: 10px 30px;
   width: 110px;
+  border-radius: 3px;
+  background-color: rgb(226, 99, 99);
+  border: 1px solid transparent;
+  color: white;
+  cursor: pointer;
+}
+
+.signout-btn{
+  padding: 10px 30px;
+  width: 120px;
   border-radius: 3px;
   background-color: rgb(226, 99, 99);
   border: 1px solid transparent;

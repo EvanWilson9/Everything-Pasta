@@ -1,11 +1,9 @@
 import React, { useEffect, useState } from 'react';
 import { createUserWithEmailAndPassword, onAuthStateChanged, signOut, signInWithEmailAndPassword } from "firebase/auth";
 import { auth, db } from '../firebase-config';
-import { Link, useNavigate } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom';
 
-let userExport;
-
-function SignUp() {
+function SignUp({setIsAuth, setUserInfo}) {
 
   const [user, setUser] = useState(null);
 
@@ -20,11 +18,10 @@ function SignUp() {
   useEffect(() => {
     const listen = onAuthStateChanged(auth, (currentUser) => {
       if (currentUser) {
-        setUser(currentUser)
-        console.log('wokring');
+        setUser(currentUser);
+        setUserInfo(currentUser.email);
       } else {
         setUser(null);
-        console.log('not working')
       }
     });
 
@@ -46,7 +43,8 @@ function SignUp() {
       createUserWithEmailAndPassword(auth, userEmail, userPassword)
         .then(() => {
 
-          // navigate('/blog');
+          navigate('/');
+          setIsAuth(true);
           inputOne.value = "";
           inputTwo.value = "";
         })
@@ -58,6 +56,8 @@ function SignUp() {
 
   const logout = async () => {
     await signOut(auth);
+    setIsAuth(false);
+
   }
 
   // const login = async (e)=>{
@@ -77,7 +77,6 @@ function SignUp() {
 
   return (
     <div className='entire-signup-wrapper'>
-      <TopHeader user={user}/>
       <section className='signup-section'>
         <div className='signup-container'>
           <div className='signup-titles'>
@@ -119,37 +118,4 @@ function SignUp() {
   );
 }
 
-export function TopHeader({user}) {
-  return (
-    <div id="top-header-container">
-      <div id="left-side">
-        <img className='title' alt="" src="/images/everything-pasta-logo.png"/>
-      </div>
-      <div class="right-side">
-          <div class="navbar-links">
-            <ul>
-              <li>
-                <Link to="/" id="link">
-                  <p id="home-txt">Home</p>
-                </Link>
-              </li>
-              <li>
-              <Link id="link" to="/blog">
-                <p>Blog</p>
-              </Link>
-              </li>
-              <li>
-                <Link to="/signup">
-                  <button class="log-in-btn">Sign Up / Log In</button>
-                </Link>
-              </li>
-              <li>{user? user.email : 'Guest'}</li>
-            </ul>
-          </div>
-        </div>
-      </div>
-  );
-}
-
-// export { userExport };
 export default SignUp;

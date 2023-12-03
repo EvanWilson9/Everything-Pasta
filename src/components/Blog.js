@@ -1,5 +1,5 @@
 import React from 'react';
-import { TopHeader } from './SignUp';
+// import { TopHeader } from './SignUp';
 import BlogPosts from './BlogPosts';
 import { useLocation } from 'react-router-dom';
 
@@ -22,7 +22,7 @@ function Blog({ user }) {
 
     return (
         <>
-            <TopHeader />
+            {/* <TopHeader /> */}
             <div className="blog-container">
                 <BlogPosts />
 
