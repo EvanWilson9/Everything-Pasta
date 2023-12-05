@@ -730,6 +730,7 @@ input[type="file"] {
   padding: 70px;
   gap:10px;
   border-radius: 9px;
+  outline:1px solid white;
 }
 
 #signup-login link{
