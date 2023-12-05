@@ -78,11 +78,10 @@ function SignUp({setIsAuth, setUserInfo}) {
             </div>
             <div className='signup-btns'>
               <Link to="/">
-                <button className='signup-btn' onClick={signup} id="signup-submit-btn">
-                  Submit
+                <button className='submit-btn' onClick={signup} id="signup-submit-btn">
+                  Sign Up
                 </button>
               </Link>
-              <button className='signup-btn' onClick={logout}>Sign Out</button>
             </div>
             <Link id='login-link' to='/login'>Already have an account?</Link>
           </div>

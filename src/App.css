@@ -698,8 +698,16 @@ input[type="file"] {
   background-size: cover;
 }
 
+.signup-input::placeholder{
+  color:white;
+}
+
 .signup-input {
-  padding: 5px;
+  padding: 10px;
+  border: 3px solid white;
+  background-color: transparent;
+  color: white;
+  outline: none;
 }
 
 .signup-btns {

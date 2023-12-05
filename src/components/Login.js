@@ -44,6 +44,7 @@ function Login({setIsAuth, setUserInfo}) {
       const user = await signInWithEmailAndPassword(auth, loggedEmail, loggedPassword);
 
       setIsAuth(true);
+      navigate('/');
       inputOne.value = "";
       inputTwo.value = "";
 
@@ -69,11 +70,10 @@ function Login({setIsAuth, setUserInfo}) {
             </div>
             <div className='signup-btns'>
               <Link to="/">
-                <button className='signup-btn' id="signup-submit-btn" onClick={login}>
-                  Submit
+                <button className='submit-btn' id="signup-submit-btn" onClick={login}>
+                  Log In
                 </button>
               </Link>
-              <button className='signup-btn' onClick={logout}>Sign Out</button>
             </div>
             <Link id='login-link' to='/signup'>Don't have an account?</Link>
           </div>
