@@ -93,3 +93,4 @@ function SignUp({setIsAuth, setUserInfo}) {
 }
 
 export default SignUp;
+
