@@ -8,14 +8,9 @@ function ContactSection(){
         <div className="contact-content">
           <div className="contact-title">Send a message!</div>
           <div className="input-section">
-            <div>
-              <input className="name" placeholder="Name"/>
-            </div>
+            
             <div>
               <input className="email" placeholder="Email"/>
-            </div>
-            <div>
-              <input className="phone" placeholder="Phone"/>
             </div>
             <div>
               <textarea className="message" placeholder="Message"></textarea>

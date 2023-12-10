@@ -10,7 +10,7 @@ function BlogFeaturedAside(){
       </div>
       <div className="create-container">
         <Link to='/blog'>
-          <button className="create-btn">
+          <button className="create-btn-home">
             Create
           </button>
         </Link>

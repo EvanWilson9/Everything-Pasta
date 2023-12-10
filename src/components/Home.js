@@ -3,7 +3,8 @@ import BlogFeaturedSection from './BlogFeaturedSection';
 import LandingRecipes from './LandingRecipes';
 import RecipesFeatured from './RecipesFeatured';
 import ContactSection from './ContactSection';
-import {BottomHeader} from './BottomHeader'
+import {BottomHeader} from './BottomHeader';
+import ContactForm from './ContactForm';
 
 function Home() {
     
@@ -13,7 +14,7 @@ function Home() {
             <LandingRecipes />
             <RecipesFeatured />
             <BlogFeaturedSection/>
-            <ContactSection/>
+            <ContactForm/>
         </>
     );
 }

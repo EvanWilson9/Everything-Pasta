@@ -10,7 +10,6 @@ import Login from './components/Login';
 import {
   Routes,
   Route,
-  Router,
   Link
 } from "react-router-dom";
 
