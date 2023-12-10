@@ -4,8 +4,8 @@ import Home from './components/Home'
 import SignUp from './components/SignUp';
 import Blog from './components/Blog';
 import CreatePost from './components/CreatePost';
-import {signOut} from 'firebase/auth';
-import {auth} from './firebase-config';
+import { signOut } from 'firebase/auth';
+import { auth } from './firebase-config';
 import Login from './components/Login';
 import {
   Routes,
