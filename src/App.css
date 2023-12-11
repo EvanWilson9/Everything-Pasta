@@ -901,6 +901,18 @@ input[type="file"] {
   }
 }
 
+@media screen and (min-width: 1000px) {
+
+  #featured-section,
+  .landing-page-section,
+  #top-header-container,
+  .contact-content,
+  .blog-section-container,
+  .posts-container {
+    padding-inline: 150px;
+  }
+}
+
 /* @media screen and (max-width: 1600px){
     #featured-section,
     .landing-page-section,

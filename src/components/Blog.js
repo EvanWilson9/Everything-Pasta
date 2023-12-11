@@ -6,17 +6,20 @@ import ContactForm from './ContactForm';
 
 function Blog({isAuth}) {
 
-    // const postsCollectionRef = collection(db, "posts");
-    // const [postLists, setPostList] = useState([]);
+    const postsCollectionRef = collection(db, "posts");
+const [postLists, setPostList] = useState([]);
 
-    // useEffect(()=>{
-    //     const getPosts = async ()=>{
-    //         const data = await getDocs(postsCollectionRef);
-    //         setPostList(data.docs.map((doc) => ({ ...doc.data(), id: doc.id})));
-    //     };
+useEffect(() => {
+  const getPosts = async () => {
+    const data = await getDocs(postsCollectionRef);
+    return data.docs.map((doc) => ({ ...doc.data(), id: doc.id }));
+  };
 
-    //     getPosts();
-    // });
+  getPosts().then((posts) => {
+    setPostList(posts);
+    console.log('test');
+  });
+}, []);
 
     const Post = ()=>{
         return(
@@ -38,13 +41,13 @@ function Blog({isAuth}) {
                     </div>
                 </div>
                 <div className='posts-container'>
+                    {/* <Post/>
                     <Post/>
                     <Post/>
                     <Post/>
                     <Post/>
-                    <Post/>
-                    <Post/>
-                    {/* {postLists.map((post) => {
+                    <Post/> */}
+                    {postLists.map((post) => {
                         return( 
                             <div className='post'>
                                 <div className='post-author'> {post.author.name} </div>
@@ -53,7 +56,7 @@ function Blog({isAuth}) {
                                 <br/>
                             </div>
                         )
-                    })} */}
+                    })}
                 </div>
                 {isAuth && <Link to="/createpost"><button className="create-post">Create Post</button></Link>}
             </div>

@@ -10,6 +10,7 @@ import Login from './components/Login';
 import {
   Routes,
   Route,
+  Router,
   Link
 } from "react-router-dom";
 
@@ -35,7 +36,7 @@ function App() {
               await signOut(auth);
               setIsAuth(false);
             }}>Sign Out</button></Link>}
-            {isAuth ? userInfo : 'Guest'}
+            {/* {isAuth ? userInfo : 'Guest'} */}
           </div>
         </nav>
         <Routes>

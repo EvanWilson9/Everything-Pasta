@@ -63,10 +63,6 @@ function SignUp({setIsAuth, setUserInfo}) {
       <section className='signup-section'>
         <div className='signup-container'>
             <h1 className='signup-page-btn'>Sign Up</h1>
-            {/* <h1 onClick={() => {
-              signUpBtn.style.color = 'rgba(211, 211, 211, 0.363)';
-              logInBtn.style.color = "white";
-            }} className='login-page-btn'>Log In</h1> */}
           <div className='signup-form'>
             <div className='signup-input-boxes'>
               <input className='signup-input' placeholder='Email' id="email" required onChange={(e) => {
