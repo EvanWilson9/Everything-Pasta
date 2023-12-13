@@ -1,11 +1,14 @@
 import React from "react";
+import { Link } from 'react-router-dom';
 
 function RecipesFeatured() {
 
   const SeeMore = () => {
     return (
       <div className="view-more">
-        <div className="view-more-btn">Show More &#x2193;</div>
+        <Link className="recipes-link" to="/recipes">
+          <div className="view-more-btn">Show More &#x2193;</div>
+        </Link>
       </div>
     );
   }

@@ -56,6 +56,10 @@ nav{
   color: black;
 }
 
+.recipes-link{
+  text-decoration: none;
+}
+
 #login-link{
   color: white;
   text-decoration: none;
@@ -873,6 +877,10 @@ input[type="file"] {
   padding: 40px;
   position: relative;
   border-radius: 9px;
+}
+
+.recipe-links{
+  text-decoration: none;
 }
 
 /*MEDIA SECTION (DO NOT CROSS)*/
