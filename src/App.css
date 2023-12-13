@@ -883,6 +883,58 @@ input[type="file"] {
   text-decoration: none;
 }
 
+.recipes-search{
+  padding:15px;
+  width:500px;
+  border-radius: 999rem;
+  border: none;
+  outline:none;
+  font-size:17px;
+}
+
+.clear-search{
+  position: absolute;
+  bottom:15px;
+  right:25px;
+  cursor: pointer;
+  display: none;
+  color: rgb(51, 50, 50);
+}
+
+.search-container{
+  display: flex;
+  position: relative;
+}
+
+.search-section{
+  display: flex;
+  justify-content: center;
+}
+
+.dish{
+  border: 3px solid black;
+  display: inline-block;
+}
+
+.dish-img{
+  width:200px;
+}
+
+.dish-name{
+
+}
+
+.dish-desc{
+
+}
+
+.recipes-section{
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+  justify-items: center;
+  padding-top:50px;
+}
+
 /*MEDIA SECTION (DO NOT CROSS)*/
 
 @media screen and (min-width: 1700px) {
