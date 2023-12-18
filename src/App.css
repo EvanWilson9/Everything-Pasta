@@ -985,7 +985,7 @@ input[type="file"] {
   }
 }
 
-/* @media screen and (min-width: 1000px) {
+@media screen and (min-width: 1000px) {
 
   #featured-section,
   .landing-page-section,
@@ -995,7 +995,7 @@ input[type="file"] {
   .posts-container {
     padding-inline: 150px;
   }
-} */
+}
 
 /* @media screen and (max-width: 1600px){
     #featured-section,
