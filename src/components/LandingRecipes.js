@@ -15,12 +15,12 @@ function LandingRecipes() {
       <div className='landing-title'>Pastas of the Week</div>
       <div className='recipe-landing-section'>
         <RecipeLanding
-          image="https://i2.wp.com/www.deathbygluttony.com/wp-content/uploads/2021/06/penne-alla-vodka-1-scaled.jpg?resize=1305%2C1536"
+          image="/images/penne-alla-vodka.webp"
           name="Penne Alla Vodka"
         />
         <RecipeLanding
-          image="https://dinnerthendessert.com/wp-content/uploads/2019/06/Baked-Spaghetti-4.jpg"
-          name="Baked Spaghetti"
+          image="/images/baked-spagetti.jpg"
+          name="Penne Alla Vodka"
         />
         <RecipeLanding
           image="/images/Skull Creek Boathouse.jpg"
