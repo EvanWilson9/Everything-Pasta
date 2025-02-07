@@ -40,8 +40,8 @@ function App() {
         </nav>
         <Routes>
           <Route path="/" element={<Home />} />
-          <Route path="/signup" element={<SignUp setIsAuth={setIsAuth} setUserInfo={setUserInfo} />} />
-          <Route path='/login' element={<Login setIsAuth={setIsAuth} setUserInfo={setUserInfo} />} />
+          <Route path="/signup" element={<SignUp setIsAuth={setIsAuth} />} />
+          <Route path='/login' element={<Login setIsAuth={setIsAuth} />} />
           <Route path="/blog" element={<Blog isAuth={isAuth} />} />
           <Route path='/createpost' element={<CreatePost />} />
           <Route path='/recipes' element={<Recipes/>}/>
