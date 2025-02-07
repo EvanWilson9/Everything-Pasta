@@ -17,7 +17,6 @@ import {
 function App() {
 
   const [isAuth, setIsAuth] = useState(false);
-  const [userInfo, setUserInfo] = useState(null);
 
   return (
     <>
@@ -37,7 +36,6 @@ function App() {
               await signOut(auth);
               setIsAuth(false);
             }}>Sign Out</button></Link>}
-            {/* {isAuth ? userInfo : 'Guest'} */}
           </div>
         </nav>
         <Routes>

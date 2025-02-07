@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useMemo } from 'react';
 import { getDocs, collection } from 'firebase/firestore'
 import { Link } from 'react-router-dom';
 import {db} from '../firebase-config';
@@ -6,20 +6,17 @@ import ContactForm from './ContactForm';
 
 function Blog({isAuth}) {
 
-    const postsCollectionRef = collection(db, "posts");
-const [postLists, setPostList] = useState([]);
+    const postsCollectionRef = useMemo(() => collection(db, "posts"), []);
+    const [postLists, setPostList] = useState([]);
 
-useEffect(() => {
-  const getPosts = async () => {
-    const data = await getDocs(postsCollectionRef);
-    return data.docs.map((doc) => ({ ...doc.data(), id: doc.id }));
-  };
-
-  getPosts().then((posts) => {
-    setPostList(posts);
-    console.log('test');
-  });
-}, []);
+    useEffect(() => {
+        const getPosts = async () => {
+          const data = await getDocs(postsCollectionRef);
+          setPostList(data.docs.map((doc) => ({ ...doc.data(), id: doc.id })));
+        };
+    
+        getPosts();
+      }, [postsCollectionRef]);
 
     const Post = ()=>{
         return(

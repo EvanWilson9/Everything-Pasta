@@ -83,9 +83,11 @@ function Recipes() {
         </div>
         <section className="recipes-section">
             {filteredDishes.length > 0 ? (
-            filteredDishes.map((dish) => {
-            return <Dish name={dish.name} img={dish.img} desc={dish.desc} />;
-            })) : (<p className="no-result">No result found</p>)}
+                filteredDishes.map((dish) => {
+                return <Dish name={dish.name} img={dish.img} desc={dish.desc} />;
+                })) 
+                : 
+                (<p className="no-result">No result found</p>)}
         </section>
       </div>
       <ContactForm />

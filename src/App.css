@@ -246,6 +246,7 @@ nav{
 .recipe-landing-section {
   display: flex;
   justify-content: space-around;
+  gap:20px;
 }
 
 .recipe-title {
